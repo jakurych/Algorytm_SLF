@@ -1,4 +1,4 @@
 # Algorytm_SLF
-Algorytm SLF na podstawie binarnej macierzy incydencji
+Algorytm SLF pozyskujący dene z binarnej macierzy incydencji
 
-beta
+alpha
