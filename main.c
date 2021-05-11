@@ -82,7 +82,7 @@ int main() {
         exit = true;
         for (j = 0; j < il_w && exit; j++) {
             if (wyniki[i] == temp[j]) {
-                printf("Wierzchołek/Kolor: %d/%d \n", wyniki[i], j + 1);
+                printf("Wierzchołek/Kolor: %d/%d \n", i+1, j + 1);
                 exit = false;
 
 
