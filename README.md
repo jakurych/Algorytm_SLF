@@ -1,5 +1,5 @@
 # Algorytm_SLF
 Algorytm SLF pozyskujący dane z binarnej macierzy incydencji
 
-alpha 2.0
+alpha 2.1
 
