@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 int main() {
     printf("Algorytm SLF\n");
@@ -44,29 +45,50 @@ int main() {
 
     puts("\nWierzchołki i ich stopnie:\n");
 
+
     for (i = 0; i < il_w; i++) {
         printf("Stopień wierzchołka %d: %d\n", i + 1, wyniki[i]);
     }
     //algorytm kolorowania
 
-    puts("\nKolory wierzchołków:\n");
-    int temp = 0;
-    int k=1;
-    for (i = 0; i < il_w; i++) {
-        if (temp < wyniki[i]) {
-            printf("Wierzchołek/Kolor: %d / %d\n", i + 1, k+1);
-            k++;
-        } else if (temp == wyniki[i]) {
-            printf("Wierzchołek/Kolor: %d / %d\n", i + 1, k);
-        } else if (temp > wyniki[i]) {
-            printf("Wierzchołek/Kolor: %d / %d\n", i + 1, k-1);
-            k--;
-        }
-        temp = wyniki[i];
+    puts("\nKolory wierzchołków:");
+    puts("(Liczba określa kolor)\n");
+    //wynik[i] = stopień grafu
+    //znaleźć największą wartość -> przypisać kolor -> znaleźć kolejną największą -> przypisać kolor
 
+    int temp[il_w];
+    int a;
+    for (i = 0; i < il_w; i++)  //przepisanie tablicy
+    {
+        temp[i] = wyniki[i];
 
     }
 
+    for (i = 0; i < il_w - 1; i++) {
+        for (j = i + 1; j < il_w; j++) {
+            if (temp[i] < temp[j]) {
+                a = temp[i];
+                temp[i] = temp[j];
+                temp[j] = a;
+            }
+        }
+    }
+    /*  for (i = 0; i < il_w; ++i) {
+          printf("%d\n", temp[i]);
+      }*/
+
+    bool exit;
+    for (i = 0; i < il_w; i++) {
+        exit = true;
+        for (j = 0; j < il_w && exit; j++) {
+            if (wyniki[i] == temp[j]) {
+                printf("Wierzchołek/Kolor: %d/%d \n", wyniki[i], j + 1);
+                exit = false;
+
+
+            }
+        }
+    }
 
     return 0;
 }
